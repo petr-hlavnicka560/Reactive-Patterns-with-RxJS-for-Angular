@@ -108,5 +108,8 @@
       }
     }
   },
-  "defaultProject": "RecipesBook"
+  "defaultProject": "RecipesBook",
+  "cli": {
+    "analytics": false
+  }
 }
