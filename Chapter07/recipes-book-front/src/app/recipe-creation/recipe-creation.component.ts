@@ -23,9 +23,9 @@ export class RecipeCreationComponent implements OnInit{
     ingredients: [''],
     tags: [''],
     imageUrl: [''],
-    cookingTime: [''],
-    yield: [''],
-    prepTime: [''],
+    cookingTime: [],
+    yield: [],
+    prepTime: [],
     steps: ['']
   });
   tags = recipeTags.TAGS;
