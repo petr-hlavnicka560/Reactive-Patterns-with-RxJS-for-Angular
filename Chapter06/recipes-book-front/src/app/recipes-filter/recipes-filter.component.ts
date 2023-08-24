@@ -14,8 +14,8 @@ export class RecipesFilterComponent implements OnInit {
     category: [''],
     ingredient: [''],
     tags: [''],
-    prepTime: [''],
-    cookingTime: [''],
+    prepTime: [],
+    cookingTime: [],
   });
 
   constructor(private service: RecipesService, private fb: FormBuilder) { }
@@ -28,6 +28,7 @@ export class RecipesFilterComponent implements OnInit {
   }
 
   clearFilter() {
+    this.service.updateFilter({title:' '});
   }
 
 

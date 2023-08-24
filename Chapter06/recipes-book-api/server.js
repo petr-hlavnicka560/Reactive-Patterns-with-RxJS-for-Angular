@@ -9,7 +9,7 @@ server.get('/api/recipes', (req, res) => {
   res.status(200).json(recipes)
 })
 
-server.listen(3001, () => {
+server.listen(9001, () => {
   console.log('Run Auth API Server')
 })
 
