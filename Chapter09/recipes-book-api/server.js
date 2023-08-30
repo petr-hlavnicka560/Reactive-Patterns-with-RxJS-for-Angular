@@ -13,7 +13,7 @@ server.post('/api/recipes/save', (req, res) => {
   res.status(200).json(req.body)
 })
 
-server.listen(3001, () => {
+server.listen(9001, () => {
   console.log('Run Auth API Server')
 })
 

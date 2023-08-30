@@ -34,7 +34,7 @@ export class RecipesService {
       return timer$.pipe(
       switchMap(_ => this.http.get<Recipe[]>(`${BASE_PATH}/recipes`)),
       /**Popular way using shareReplay**/
-      shareReplay(1)
+        shareReplay({bufferSize: 1, refCount: true })
       /**Recommended way using RxJS7+
       share({
         connector : () => new ReplaySubject(),
@@ -45,7 +45,7 @@ export class RecipesService {
     );
     }
     return this.recipes$;
-  } 
+  }
 
 
 }
