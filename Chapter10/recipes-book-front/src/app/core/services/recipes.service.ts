@@ -16,7 +16,7 @@ export class RecipesService {
 
   recipes$ = this.getRecipesList();
   private filterRecipeSubject = new BehaviorSubject<Recipe>({ title: '' });
-  filterRecipesAction$ = this.filterRecipeSubject.asObservable(); 
+  filterRecipesAction$ = this.filterRecipeSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -28,11 +28,11 @@ export class RecipesService {
     if (!this.recipes$) {
       return timer$.pipe(
       switchMap(_ => this.http.get<Recipe[]>(`${BASE_PATH}/recipes`)),
-      shareReplay(1)
+        shareReplay({bufferSize: 1, refCount: true })
     );
     }
     return this.recipes$;
-  } 
+  }
 
 
   saveRecipe(formValue: Recipe): Observable<Recipe> {
