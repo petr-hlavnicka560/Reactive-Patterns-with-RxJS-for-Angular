@@ -5,6 +5,7 @@ import * as recipeTags from '../core/model/tags';
 import { catchError, concatMap, finalize, switchMap, tap } from 'rxjs/operators';
 import { BehaviorSubject, forkJoin, of } from 'rxjs';
 import { UploadRecipesPreviewService } from '../core/services/upload-recipes-preview.service';
+import {Recipe} from "../core/model/recipe.model";
 
 @Component({
   selector: 'app-recipe-creation',
@@ -17,18 +18,18 @@ export class RecipeCreationComponent {
   constructor(private formBuilder: FormBuilder, private service: RecipesService,
     private uploadService: UploadRecipesPreviewService) { }
   recipeForm = this.formBuilder.group({
-    id: Math.floor(1000 + Math.random() * 9000),
+    id: String(Math.floor(1000 + Math.random() * 9000)),
     title: [''],
     ingredients: [''],
     tags: [''],
-    cookingTime: [''],
-    yield: [''],
-    prepTime: [''],
+    cookingTime: [],
+    yield: [],
+    prepTime: [],
     steps: ['']
   });
   tags = recipeTags.TAGS;
   valueChanges$ = this.recipeForm.valueChanges.pipe(
-    concatMap(formValue => this.service.saveRecipe(formValue)),
+    concatMap(formValue => this.service.saveRecipe(formValue as Recipe)),
     catchError(errors => of(errors)),
     tap(result => this.saveSuccess(result))
   );
@@ -36,7 +37,7 @@ export class RecipeCreationComponent {
   uploadedFilesSubject$ = new BehaviorSubject<File[]>([]);
   uploadRecipeImages$ = this.uploadedFilesSubject$.pipe(
     switchMap(uploadedFiles => forkJoin(uploadedFiles.map((file: File) =>
-      this.uploadService.upload(this.recipeForm.value.id, file).pipe(
+      this.uploadService.upload(this.recipeForm.value.id as string, file).pipe(
         catchError(errors => of(errors)),
         finalize(() => this.calculateProgressPercentage(++this.counter, uploadedFiles.length))
       ))))

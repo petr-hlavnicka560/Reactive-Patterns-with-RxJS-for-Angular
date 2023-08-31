@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { HeaderComponent } from './core/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RecipesService } from './core/services/recipes.service';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
@@ -50,13 +49,13 @@ import { MessageService } from 'primeng/api';
     RatingModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     MenubarModule,
     RadioButtonModule,
     FileUploadModule
 
   ],
-  providers: [RecipesService, MessageService],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
