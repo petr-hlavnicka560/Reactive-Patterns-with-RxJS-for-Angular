@@ -42,6 +42,7 @@ export class RealTimeService {
 
     if (!this.socket$ || this.socket$.closed) {
       this.socket$ = this.getNewWebSocket();
+      console.log('[DataService]: connection opened');
       const messages = this.socket$.pipe(cfg.reconnect ? this.reconnect : o => o,
         tap({
           error: error => console.log(error),
