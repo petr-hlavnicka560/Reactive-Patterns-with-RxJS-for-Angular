@@ -20,29 +20,29 @@ fdescribe('RecipesService', () => {
 
   it('should get recipes from API', () => {
     const recipes: Recipe[] = [{
-      "id": 9,
+      "id": "9",
       "title": "Lemon cake",
-      "prepTime": "10",
-      "cookingTime": "35",
+      "prepTime":  10,
+      "cookingTime":  35,
       "rating": 3,
       "imageUrl": "lemon-cake.jpg"
 
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Lemon pie",
-      "prepTime": "10",
-      "cookingTime": "35",
+      "prepTime":  10,
+      "cookingTime":  35,
       "rating": 3,
       "imageUrl": "lemon-pie.jpg"
     },
     ];
 
     const recipeToSave : Recipe= {
-      "id": 9,
+      "id": "9",
       "title": "Lemon cake",
-      "prepTime": "10",
-      "cookingTime": "35",
+      "prepTime":  10,
+      "cookingTime":  35,
       "rating": 3,
       "imageUrl": "lemon-cake.jpg"
 
@@ -54,18 +54,18 @@ fdescribe('RecipesService', () => {
     const req = httpTestingController.expectOne(`/api/recipes/save`);
     req.flush(recipeToSave);
     // req.flush([{
-    //   "id": 9,
+    //   "id": "9",
     //   "title": "Lemon cake",
-    //   "prepTime": "10",
-    //   "cookingTime": "35",
+    //   "prepTime":  10,
+    //   "cookingTime":  35,
     //   "rating": 3,
     //   "imageUrl": "lemon-cake.jpg"
     // },
     // {
-    //   "id": 10,
+    //   "id": "10",
     //   "title": "Lemon pie",
-    //   "prepTime": "10",
-    //   "cookingTime": "35",
+    //   "prepTime":  10,
+    //   "cookingTime":  35,
     //   "rating": 3,
     //   "imageUrl": "lemon-pie.jpg"
     // }]);
@@ -73,12 +73,12 @@ fdescribe('RecipesService', () => {
   });
 
 
-  it('should save recipe from API', () => {
+  fit('should save recipe from API', () => {
     const recipeToSave : Recipe= {
-      "id": 9,
+      "id": "9",
       "title": "Lemon cake",
-      "prepTime": "10",
-      "cookingTime": "35",
+      "prepTime": 10,
+      "cookingTime": 35,
       "rating": 3,
       "imageUrl": "lemon-cake.jpg"
 

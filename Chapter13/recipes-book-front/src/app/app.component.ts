@@ -13,6 +13,6 @@ export class AppComponent  {
   //messages$ = this.service.messages$.pipe(map(rows => rows.message));
   constructor(private service: RealTimeService) {
     //connect to the WS
-    //this.service.connect();
+    this.service.connect();
   }
 }
