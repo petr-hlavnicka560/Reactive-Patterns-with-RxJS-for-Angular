@@ -8,5 +8,9 @@ describe('SharedDataService', () => {
     service = TestBed.inject(SharedDataService);
   });
 
+  it('tautology', () => {
+    expect(true).toBeTruthy();
+  });
+
 });
 

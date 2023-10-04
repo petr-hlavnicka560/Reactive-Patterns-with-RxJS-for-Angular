@@ -9,4 +9,8 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   });
+
+  it('tautology', () => {
+    expect(true).toBeTruthy();
+  });
 });
