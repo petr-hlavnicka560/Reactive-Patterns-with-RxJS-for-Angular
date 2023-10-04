@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { RecipesService } from './recipes.service';
 import { Recipe } from '../model/recipe.model';
 
-fdescribe('RecipesService', () => {
+describe('RecipesService', () => {
 
   let service: RecipesService;
   let httpTestingController: HttpTestingController;
@@ -73,7 +73,7 @@ fdescribe('RecipesService', () => {
   });
 
 
-  fit('should save recipe from API', () => {
+  it('should save recipe from API', () => {
     const recipeToSave : Recipe= {
       "id": "9",
       "title": "Lemon cake",
